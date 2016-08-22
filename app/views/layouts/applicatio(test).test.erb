@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heart Companion</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <header>
+      <div class='container'>
+        <ul id="nav-mobile" class="side-nav fixed">
+          <li>
+            <div class="userView">
+            <img class="background" src="https://goo.gl/e6Op43">
+            <a href="#!user"><img class="circle" src="http://goo.gl/qIgyox"></a>
+            <a href="#!name"><span class="white-text name">Roderick Fung</span></a>
+            <a href="#!email"><span class="white-text email">roderickfung@gmail.com</span></a>
+            </div>
+          </li>
+          <li class='search'>
+            <div class='search-wrapper card'>
+              <input id='search'>
+              <i class='material-icons'>search</i>
+              <div class='search-results'></div>
+              </input>
+            </div>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="material-icons">dashboard</i>Dashboard
+            <%end%>
+          </li>
+          <li class='no-padding'>
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Clinicians<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><%= link_to("Clinicians List", clinicians_path)%></li>
+                    <li><%= link_to("New Clinician", new_clinician_path)%></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#!"><i class="material-icons">assignment_ind</i>Patient Data</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Subheader</a></li>
+          <li><a class="waves-effect" href="#!">asdasdfa</a></li>
+        </ul>
+      </div>
+    </header>
+      <!-- Page Content -->
+    <main>
+      <div class="container">
+        <div class='row'>
+          <div class='col s12 m9 l10'>
+            <!-- <div class = 'menu-btn'>
+              <a href="#" data-activates="slide-out" class="button-collapse"><i class="small material-icons">menu</i></a>
+            </div> -->
+            <!-- <div class="container-fluid"> -->
+              <!-- <div class="row"> -->
+                  <!-- <div class="col-lg-12"> -->
+                      <%=yield%>
+                  <!-- </div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+    </main>
+</body>
+</html>
+<script>
+// Initialize collapse button
+$(".button-collapse").sideNav({
+  menuWidth: 300, // Default is 240
+  edge: 'left', // Choose the horizontal origin
+  closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+});
+// Initialize collapsible (uncomment the line below if you use the dropdown variation)
+// $('.collapsible').collapsible();
+</script>

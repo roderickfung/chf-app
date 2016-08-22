@@ -1,0 +1,78 @@
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "materialize/components/color";
+$primary-color: color("blue", "lighten-2") !default;
+@import 'materialize';
+@import "materialize/extras/nouislider";
+
+.userView .background {
+  // height: 200rem !important;
+}
+
+.menu-btn {
+  top: 2%;
+  right: 5%;
+  position: fixed;
+}
+
+
+.collapsible-header i {
+  // margin-right: 2.1rem !important;
+}
+
+.collapsible-header {
+  // padding: 0px 32px 0px 32px !important;
+}
+
+.menu-drop-letter{
+  padding-left: 10rem;
+}
+
+
+@media only screen and (max-width: 992px) {
+  .side-nav a {
+    padding: 0 32px !important;
+  }
+
+  // .side-nav .userView {
+  //   padding: 16px 16px 0;
+  // }
+}
+
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+.account-btn {
+  bottom: 5%;
+}
+
+.log-title-block {
+  margin-top: 15%;
+  background-color: #F44336;
+  color: white;
+}
+
+.log-title-block .log-title-text {
+  margin: 0em 1em 0em 1em;
+  padding: 1em 0em 1em 0em;
+}

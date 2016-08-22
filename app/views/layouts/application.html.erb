@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Heart Companion</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <header>
+      <div class='container'>
+        <ul id="slide-out" class="side-nav fixed" style="transform: translateX(0%);">
+          <li>
+            <div class="userView">
+              <img class="responsive-img background" src="http://www.w3schools.com/w3css/img_fjords.jpg">
+              <a href="#!user"><img class="circle responsive-img" src="http://goo.gl/qIgyox"></a>
+              <a href="#!name"><span class="white-text name">Roderick Fung</span></a>
+              <a href="#!email"><span class="white-text email">roderickfung@gmail.com</span></a>
+            </div>
+          </li>
+          <li class="search">
+            <div class="">
+              <div class="search-bar">
+                <%= form_tag search_path, method: 'get', class: 'search-wrapper card', role: 'search' do %>
+                  <div class='input-group'>
+                    <%= text_field_tag :query, params[:query], size: 150, placeholder: "Search", class: "form-control"%>
+                    <%= button_tag(type: 'submit', class: 'btn-floating waves-effect waves-light btn', name: nil) do %>
+                      <i class='material-icons'>search</i>
+                    <%end%>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </li>
+          <li>
+            <%= link_to root_path do %>
+              <i class="material-icons">dashboard</i>Dashboard
+            <%end%>
+          </li>
+          <li class='no-padding'>
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header">Clinicians<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><%= link_to("Clinicians List", clinicians_path)%></li>
+                    <li><%= link_to("New Clinician", new_clinician_path)%></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#!"><i class="material-icons">assignment_ind</i>Patient Data</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Subheader</a></li>
+          <li><a class="waves-effect" href="#!">asdasdfa</a></li>
+          <li>
+            <div class='account-btn'>
+              <%= link_to new_session_path do %>
+              <i class='tiny material-icons'>settings</i> Account Settings
+              <%end%>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+      <!-- Page Content -->
+    <main>
+      <div class="container">
+        <a href="#" data-activates="slide-out" class="button-collapse menu-btn"><i class="material-icons">menu</i></a>
+        <%=yield%>
+      </div>
+    </main>
+</body>
+</html>
+<script>
+// Initialize collapse button
+ $(".button-collapse").sideNav({
+   menuWidth: 300,
+   edge: 'left',
+   closeOnclick: true
+ });
+ // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+ $('.collapsible').collapsible();
+</script>

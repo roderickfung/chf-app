@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="container">
+    <div class= "log-title-block">
+      <div class= "log-title-text">
+        <h3>Sign In</h3>
+      </div>
+    </div>
+
+    <div>
+      <%= form_tag sessions_path, {style:'margin-top: 2%;'} do%>
+        <div>
+          <%= label_tag :account%>
+          <%= text_field_tag :account%>
+        </div>
+        <div>
+          <%= label_tag :password%>
+          <%= password_field_tag :password%>
+        </div>
+        <%= submit_tag("Sign In", class:"waves-effect waves-light btn red") %>
+      <%end%>
+    </div>
+  </div>
+</div>

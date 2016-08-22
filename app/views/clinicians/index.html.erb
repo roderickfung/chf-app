@@ -1,0 +1,20 @@
+<table class='table-striped table' style='margin-top: 1 em;'>
+  <tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>E-Mail</th>
+    <th>View Details</th>
+  </tr>
+  <% @data.each do |x|%>
+    <tr>
+      <td><%=x.id%></td>
+      <td><%=x.first_name%></td>
+      <td><%=x.last_name%></td>
+      <td><%=x.email%></td>
+      <td><%=link_to 'View Details', "./#{x.id}", class:'btn btn-info'%></td>
+    </tr>
+  <%end%>
+</table>
+
+<center><%=paginate @data%></center>
